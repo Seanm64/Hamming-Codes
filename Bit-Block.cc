@@ -55,18 +55,30 @@ void BitBlock::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
 
+    painter.setBrush(Qt::NoBrush);
+    painter.setPen(Qt::white);
+
+    if(block_type_ == eParityBlock)
+    {
+        painter.setBrush(Qt::red);
+    }
+    else
+    {
+        if(data_)
+        {
+            painter.setBrush(Qt::green);
+            painter.setPen(Qt::black);
+        }
+    }
+
+    painter.drawRect(this->rect());
+
     if(data_)
     {
-        painter.setPen(Qt::black);
-        painter.setBrush(Qt::green);
-        painter.drawRect(this->rect());
         painter.drawText(this->rect(), Qt::AlignCenter, "1");
     }
     else
     {
-        painter.setPen(Qt::white);
-        painter.setBrush(Qt::NoBrush);
-        painter.drawRect(this->rect());
         painter.drawText(this->rect(), Qt::AlignCenter, "0");
     }
 

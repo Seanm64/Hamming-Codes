@@ -28,6 +28,9 @@ MainWindow::MainWindow(QWidget* parent)
             bit_block_vector_.at(row * row_col_size + column)->move(column * block_width, row * block_height);
             bit_block_vector_.at(row * row_col_size + column)->show();
         }
+
+
+        bit_block_vector_.at(qPow(2, row))->SetBlockType(BlockType::eParityBlock);
     }
 
 }
