@@ -55,13 +55,26 @@ void BitBlock::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
 
-    painter.setPen(Qt::black);
-    painter.setBrush(Qt::green);
-
     if(data_)
+    {
+        painter.setPen(Qt::black);
+        painter.setBrush(Qt::green);
+        painter.drawRect(this->rect());
         painter.drawText(this->rect(), Qt::AlignCenter, "1");
+    }
     else
+    {
+        painter.setPen(Qt::white);
+        painter.setBrush(Qt::NoBrush);
+        painter.drawRect(this->rect());
         painter.drawText(this->rect(), Qt::AlignCenter, "0");
+    }
 
-    painter.drawRect(this->rect());
+}
+
+void BitBlock::mousePressEvent(QMouseEvent *event)
+{
+    data_ = ! data_;
+
+    update();
 }

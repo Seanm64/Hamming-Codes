@@ -33,9 +33,12 @@ public:
 private:
     void paintEvent(QPaintEvent* event);
 
+    void mousePressEvent(QMouseEvent* event);
+
     BlockType block_type_;
 
     bool data_;
+
 };
 
 #endif // BIT_BLOCK_H
