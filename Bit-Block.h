@@ -4,7 +4,7 @@
 #include <QWidget>
 
 enum BlockType : uint32_t {
-    eModifiableBlock = 0,
+    eDataBlock = 0,
     eParityBlock = 1,
     eFirstBlock = 2,
     eDisabledBlock = 3
@@ -29,6 +29,8 @@ public:
     void SetBlockType(BlockType block_type);
 
     bool SetBlock(bool block);
+
+    bool GetData() { return data_; };
 
 private:
     void paintEvent(QPaintEvent* event);

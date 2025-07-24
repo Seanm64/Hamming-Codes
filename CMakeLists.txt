@@ -17,13 +17,16 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        Bit-Block.h
+        Bit-Block.cc
+        datasubmissionarea.h
+        datasubmissionarea.cc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Hamming-Codes
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        Bit-Block.h Bit-Block.cc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Hamming-Codes APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

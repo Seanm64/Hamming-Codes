@@ -3,10 +3,6 @@
 
 #include <QMainWindow>
 
-#include <vector>
-
-#include "Bit-Block.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,12 +18,12 @@ public:
 
     virtual ~MainWindow();
 
+private slots:
+    void on_NewButton_clicked();
+
 private:
     Ui::MainWindow* ui;
 
-    const uint32_t kDiskSize = 16;
-
-    std::vector<BitBlock*> bit_block_vector_;
 
 };
 #endif // MAINWINDOW_H

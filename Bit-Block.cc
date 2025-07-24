@@ -25,7 +25,7 @@ BitBlock::BitBlock(BitBlock&& other) noexcept
     other.setParent(nullptr);
 }
 
-BitBlock& BitBlock::operator=(BitBlock &&other) noexcept
+BitBlock& BitBlock::operator=(BitBlock&& other) noexcept
 {
     this->setParent(other.parentWidget());
     block_type_     = other.block_type_;
@@ -84,9 +84,12 @@ void BitBlock::paintEvent(QPaintEvent* event)
 
 }
 
-void BitBlock::mousePressEvent(QMouseEvent *event)
+void BitBlock::mousePressEvent(QMouseEvent* event)
 {
-    data_ = ! data_;
+    if(block_type_ == BlockType::eDataBlock)
+    {
+        data_ = ! data_;
+    }
 
     update();
 }
